@@ -11,9 +11,10 @@ Rec Room is controlled using a set of command line tools. On your given platform
 1. RecRoom requires Node.js. Follow [these instructions]() to download and install it before you do the next steps.
 2. Open your Terminal or command line now.
 3. Install Rec Room using the node package manager (NPM).
-  
-
-3. If the installation was successful, you’ll see the following.
+```
+npm install -g recroom
+```
+4. If the installation was successful, you’ll see the following.
 
 
 
