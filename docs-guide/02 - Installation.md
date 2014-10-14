@@ -15,6 +15,9 @@ Rec Room is controlled using a set of command line tools. On your given platform
 npm install -g recroom
 ```
 4. If the installation was successful, you’ll see the following.
+```
+< some lines here >
+```
 
 *Warning:* If you get an error about permissions and are on Linux, Mac OS X, or another flavor of Unix, you may have issues with the ownership of your .npm directory. See [Stack Overflow - NPM throws errors without sudo](). We strongly encourage people not to use sudo with npm, as packages can execute arbitrary scripts.
 
