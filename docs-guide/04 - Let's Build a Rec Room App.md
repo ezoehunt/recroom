@@ -205,10 +205,9 @@ So we created a list of all available timezones with offsets. Then we added meth
   {{/each}}
 </ul>
    ```
+   Now we have a Timezones tab that allows us to add and remove Timezones we want to track. This data persists between app refreshes. 
 
-Now we have a Timezones tab that allows us to add and remove Timezones we want to track. This data persists between app refreshes. 
-
-The last thing we need to do is show these times relative to our local time in our clock tab. To do this we need to load all the Timezone models in the ClockRoute. They’re automatically loaded in the TimezonesRoute, but it’s easy to add them in the ClockRoute.
+   The last thing we need to do is show these times relative to our local time in our clock tab. To do this we need to load all the Timezone models in the ClockRoute. They’re automatically loaded in the TimezonesRoute, but it’s easy to add them in the ClockRoute.
 
 3. Open app/scripts/routes/clock_route.js and add the following:
 
