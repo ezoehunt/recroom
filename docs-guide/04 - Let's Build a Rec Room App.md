@@ -42,9 +42,9 @@ First, we’ll add the current time to the main tab. Rec Room supports Ember’s
 3. Now let's add that variable to our ClockController. Open app/scripts/controllers/clock_controller.js and add the following:
 
    ```
-      WorldClock.ClockController = Ember.ObjectController.extend({
-         localTime: new Date().toLocaleTimeString()
-      });
+   WorldClock.ClockController = Ember.ObjectController.extend({
+      localTime: new Date().toLocaleTimeString()
+   });
    ```
 You can see that any property inside the controller is accessible inside that controller’s template. We've define the 1ocalTime property, and it's carried into our template context.
 
@@ -98,11 +98,11 @@ Next, let's add a few timezones that a person can add to their own collection of
    ```
 4. Open app/index.html and add the following.
    ```
-   <!-- build:js(app) scripts/components.js -->
-   <!-- [Other script tags] -->
-   <script src="bower_components/moment/moment.js"></script>
-   <script src="bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
-   <!-- endbuild -->
+<!-- build:js(app) scripts/components.js -->
+<!-- [Other script tags] -->
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
+<!-- endbuild -->
    ```
 Adding that tag automatically adds moment-timezone-with-data-2010-2020.js to our built app. 
 
@@ -128,15 +128,15 @@ Adding that tag automatically adds moment-timezone-with-data-2010-2020.js to our
     </x-tabbar>
   </footer>
 </x-layout>
- ```
+   ```
 
 6. Now open http://localhost:9000. in your browser. Notice how the root URL points to a useless welcome page? We probably want the default route to be our ClockController. So let's set the index route to redirect to it. Open app/scripts/routes/application_route.js and add the following:
    ```
-   WorldClock.ApplicationRoute = Ember.Route.extend({
-       redirect: function() {
-           this.transitionTo('clock');
-      }
-   });
+WorldClock.ApplicationRoute = Ember.Route.extend({
+   redirect: function() {
+      this.transitionTo('clock');
+   }
+});
    ```
 
 ### Interacting with Timezone Models
@@ -180,10 +180,10 @@ WorldClock.TimezonesController = Ember.ObjectController.extend({
   }
 });
    ```
-
 So we created a list of all available timezones with offsets. Then we added methods that allow us to add or remove timezones from our offline data store. 
 
 2. Next we'll modify the timezones template to use the actions and variables we just created. Open app/templates/timezones.hbs. Use the Ember SelectView and the {{action}} helper to call our add and remove methods. Your file should look like this:
+
    ```
 <h2>Add Timezone</h2>
  
@@ -206,6 +206,7 @@ Now we have a Timezones tab that allows us to add and remove Timezones we want t
 The last thing we need to do is show these times relative to our local time in our clock tab. To do this we need to load all the Timezone models in the ClockRoute. They’re automatically loaded in the TimezonesRoute, but it’s easy to add them in the ClockRoute.
 
 3. Open app/scripts/routes/clock_route.js and add the following:
+
    ```
 WorldClock.ClockRoute = Ember.Route.extend({
     model: function() {
@@ -219,6 +220,7 @@ Because of the way our Ember app is wired up, we load all our models in the rout
 Now we have access to all the user’s Timezones in the ClockController, so we can make times in each timezone the user has requested and show them in a list. 
 
 4. Let's add each Timezone’s current time to our ClockController using Moment.js. Open app/scripts/controllers/clock_controller.js and add the following:
+
    ```
 WorldClock.ClockController = Ember.ObjectController.extend({
     updateTime: function() {
@@ -242,6 +244,7 @@ WorldClock.ClockController = Ember.ObjectController.extend({
    ```
 
 5. Your final app/templates/clock.hbs should look like this:
+
    ```
 <h2>Local Time: {{localTime}}</h2>
  
