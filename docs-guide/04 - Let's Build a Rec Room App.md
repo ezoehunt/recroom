@@ -10,14 +10,17 @@ We’ll create a simple clock app with (minimal) time zone support for our examp
 ## Create the App
 1. Change to the directory where you want to create your project.
 2. Create a new app called "world-clock."
+   
    ```
    $ recroom new world-clock
    ```
 3. Change directory to the new project folder.
+   
    ```
    $ cd world-clock
    ```
 4. Run the new app in your default browser.
+   
    ```  
    $ recroom run
    ```
