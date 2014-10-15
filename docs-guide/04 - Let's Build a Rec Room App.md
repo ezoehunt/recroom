@@ -82,10 +82,12 @@ With this simple clock app, we've demonstrated how to work with Ember’s data-b
 Next, let's add a few timezones that a person can add to their own collection of timezones to compare against local time. This will help a person schedule their meetings with friends in San Francisco, Buenos Aires, and London. 
 
 1. Rec Room let's create a timezone model (and accompanying controllers/routes/templates) with the same generate command, but this time we’ll just generate the model:.
+
    ```
    $ recroom generate model Timezone
    ```
 2. We want each timezone included in our app to have a name and an offset value. So we'll add them as model attributes, and we'll use Ember Data for this. Open app/scripts/models/timezone_model.js and add the following:
+
    ```
    WorldClock.Timezone = DS.Model.extend({
       name: DS.attr('string'),
@@ -93,10 +95,12 @@ Next, let's add a few timezones that a person can add to their own collection of
    });
   ```
 3. Next we want to let a person choose from a list of all timezones. For this we’ll use [Moment Timezone](), an awesome JavaScript library for dealing with dates and times in JavaScript.  Install Moment Timezone using [bower]().
+
    ```
    $ bower install moment-timezone --save
    ```
 4. Open app/index.html and add the following.
+
    ```
 <!-- build:js(app) scripts/components.js -->
 <!-- [Other script tags] -->
@@ -107,6 +111,7 @@ Next, let's add a few timezones that a person can add to their own collection of
 Adding that tag automatically adds moment-timezone-with-data-2010-2020.js to our built app. 
 
 5. Next we'll add a tab to the page that lets people edit their timezones on a different screen than their clocks. To add a tab, we just need to open app/templates/application.hbs and add a tab. While we’re there, let's change the main tab from the useless {{#linkTo 'index'}} and point it to {{#linkTo 'clock'}}. Your updated application.hbs should look like this:
+
    ```
 <x-layout>
   <header>
@@ -214,7 +219,6 @@ WorldClock.ClockRoute = Ember.Route.extend({
     }
 });
    ```
-
 Because of the way our Ember app is wired up, we load all our models in the route and they are sent to the controller once the data store has asynchonously loaded all of the models. The request to find('timezone') actually returns a Promise object, but Ember’s router handles the Promise resolving for us automatically so we don’t have to manage callbacks or Promises ourselves.
 
 Now we have access to all the user’s Timezones in the ClockController, so we can make times in each timezone the user has requested and show them in a list. 
@@ -254,6 +258,7 @@ WorldClock.ClockController = Ember.ObjectController.extend({
   {{/each}}
 </p>
    ```
+
 6. Open http://localhost:9000/ in your browser to see the your final clock app. You've got an offline app that shows time zones in various places, saves the data offline, and updates every second without you having to do much work!
 
 
