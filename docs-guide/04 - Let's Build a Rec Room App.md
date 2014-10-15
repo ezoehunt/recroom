@@ -218,9 +218,9 @@ WorldClock.ClockRoute = Ember.Route.extend({
     }
 });
    ```
-Because of the way our Ember app is wired up, we load all our models in the route and they are sent to the controller once the data store has asynchonously loaded all of the models. The request to find('timezone') actually returns a Promise object, but Ember’s router handles the Promise resolving for us automatically so we don’t have to manage callbacks or Promises ourselves.
+   Because of the way our Ember app is wired up, we load all our models in the route and they are sent to the controller once the data store has asynchonously loaded all of the models. The request to find('timezone') actually returns a Promise object, but Ember’s router handles the Promise resolving for us automatically so we don’t have to manage callbacks or Promises ourselves.
 
-Now we have access to all the user’s Timezones in the ClockController, so we can make times in each timezone the user has requested and show them in a list. 
+   Now we have access to all the user’s Timezones in the ClockController, so we can make times in each timezone the user has requested and show them in a list. 
 
 4. Let's add each Timezone’s current time to our ClockController using Moment.js. Open app/scripts/controllers/clock_controller.js and add the following:
 
